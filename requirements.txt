@@ -1,0 +1,17 @@
+langchain
+langchain-community
+langsmith
+
+groq
+
+transformers
+torch
+
+pymysql
+sqlalchemy
+mysql-connector-python
+cryptography
+
+python-dotenv
+
+pandas
