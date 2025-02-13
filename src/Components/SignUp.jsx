@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Quote from './Quote';
 import { Link, useNavigate } from 'react-router-dom';
+import { backend_API, localHost } from '../Endpoint';
 
 const SignUp = () => {
     const navigate = useNavigate();  // Correct instantiation of useNavigate
@@ -34,7 +35,7 @@ const SignUp = () => {
         }
 
         try {
-            const response = await fetch('https://e22e-175-107-212-141.ngrok-free.app/api/Auth/register', {
+            const response = await fetch(`${backend_API}/api/Auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
