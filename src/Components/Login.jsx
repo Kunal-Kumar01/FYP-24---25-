@@ -59,6 +59,7 @@
 import React, { useState } from 'react';
 import Quote from './Quote';
 import { useNavigate } from 'react-router-dom';
+import { backend_API } from '../Endpoint';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -75,7 +76,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://yourbackendapi/login', {
+            const response = await fetch(`${backend_API}/api/Auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
