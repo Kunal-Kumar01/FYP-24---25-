@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-function Sources() {
+function HomePage() {
     const [currentMode, setCurrentMode] = useState('Light Mode');
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [headColor, setHeadColor] = useState('#000000');
+
+    const location = useLocation();
+    const userEmail = location.state?.email;
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
         setCurrentMode(isDarkMode ? 'Dark Mode' : 'Light Mode');
         setHeadColor(isDarkMode ? '#000000' : '#FFFFFF');
     };
-    
+
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
         console.log('Searching for:', event.target.value);
@@ -23,13 +27,9 @@ function Sources() {
             <aside className="w-64 bg-gray-900 text-white p-4">
                 <div className="mb-8">
                     <h1 className="text-xl font-bold mb-4">ETL Pipeline</h1>
-                    <div className="text-sm text-gray-400 mb-4">user@email.com</div>
+                    <div className="text-sm text-gray-400 mb-4">{userEmail || 'user@email.com'}</div>
                 </div>
                 <nav>
-                    <a href="#" className="sidebar-item flex items-center p-2 rounded-lg mb-2">
-                        <i className="bi bi-share-fill mr-3"></i>
-                        Connections
-                    </a>
                     <a href="#" className="sidebar-item flex items-center p-2 rounded-lg mb-2 bg-gray-800">
                         <i className="bi bi-database-fill mr-3"></i>
                         Sources
@@ -108,4 +108,4 @@ function Sources() {
     );
 }
 
-export default Sources;
+export default HomePage;

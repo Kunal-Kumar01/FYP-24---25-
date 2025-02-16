@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import LoginPage1 from './Components/LoginPage1';
 import SignUp from './Components/SignUp';
 import Login from './Components/Login';
-import Sources from './Components/Sources';
+import HomePage from './Components/HomePage';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/Sources" element={<Sources />} />
+          <Route path="/HomePage" element={<HomePage />} />
         </Routes>
       </Router>
     </>
